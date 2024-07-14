@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 3vh;
+    font-weight: 700;
+    color: #dddddd;
+    background-color: #0f172a;
+}
+
+p {
+    padding: 4px 10px;
+}
+
+p:hover {
+    color:white;
+    cursor: pointer;
+}
+
+#tiles-container {
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+    width: 97vh;
+}
+
+.row {
+    flex:1;
+    display: flex;
+}
+
+.tile {
+    flex: 1;
+    border: 1px solid #eeeeee;
+}
+
+.inFocus {
+    background-color: black;
+}
+
+
+.fading{
+    background-color: white;
+    transition: ease-in 3s;
+}

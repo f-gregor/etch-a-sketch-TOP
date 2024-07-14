@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP - Etch-a-Sketch assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><p>Set number of squares per side</p></nav>
+    <div id="tiles-container">
+    </div>
+    <script>
+        const tilesContainer = document.querySelector("#tiles-container");
+        const tilesNumberSetter = document.querySelector("nav > p");
+
+        tilesNumberSetter.addEventListener('click', () => {
+            clearGrid();
+            candidateNumberOfSquares = parseInt(prompt("Enter the number of squares per side: (Default: 16 | Max: 100 | Min: 1)"));
+            if (candidateNumberOfSquares > 0 && candidateNumberOfSquares < 101) {
+                createGrid(candidateNumberOfSquares);
+            } else {
+                createGrid();
+            }
+        })
+
+        function createGrid (numberOfSquaresPerSide = 16) {
+            for(let i = 0; i < numberOfSquaresPerSide; i++){
+                const row_div = document.createElement("div");
+                row_div.classList.add("row");
+
+                for(let j = 0; j < numberOfSquaresPerSide; j++) {
+                    const tile = document.createElement("div");
+                    tile.classList.add("tile");
+                    tile.addEventListener("mouseenter", () => {
+                        tile.classList.remove("fading");
+                        tile.classList.add("inFocus");
+                    })
+                    tile.addEventListener("mouseleave", () => {
+                        tile.classList.remove("inFocus");
+                        tile.classList.add("fading");
+                    })
+                    tile.addEventListener("transitionend", () => {tile.classList.remove("fading");})
+                    row_div.appendChild(tile);
+                }
+
+                tilesContainer.appendChild(row_div);
+            }
+        }
+
+        function clearGrid () {
+            while (tilesContainer.firstChild) {
+                tilesContainer.removeChild(tilesContainer.firstChild);
+            }
+        }
+
+        createGrid()
+        
+    </script>
+</body>
+</html>
