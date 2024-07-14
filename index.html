@@ -13,6 +13,7 @@
     <script>
         const tilesContainer = document.querySelector("#tiles-container");
         const tilesNumberSetter = document.querySelector("nav > p");
+        const OPACITY_STEP = 0.2
 
         tilesNumberSetter.addEventListener('click', () => {
             clearGrid();
@@ -33,12 +34,7 @@
                     const tile = document.createElement("div");
                     tile.classList.add("tile");
                     tile.addEventListener("mouseenter", () => {
-                        tile.classList.remove("fading");
-                        tile.classList.add("inFocus");
-                    })
-                    tile.addEventListener("mouseleave", () => {
-                        tile.classList.remove("inFocus");
-                        tile.classList.add("fading");
+                        if (Number(tile.style.opacity) < 1) tile.style.opacity = Number(tile.style.opacity) + OPACITY_STEP;
                     })
                     tile.addEventListener("transitionend", () => {tile.classList.remove("fading");})
                     row_div.appendChild(tile);
