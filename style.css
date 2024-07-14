@@ -22,7 +22,7 @@ p {
 }
 
 p:hover {
-    color:white;
+    color: white;
     cursor: pointer;
 }
 
@@ -41,14 +41,4 @@ p:hover {
 .tile {
     flex: 1;
     border: 1px solid #eeeeee;
-}
-
-.inFocus {
-    background-color: black;
-}
-
-
-.fading{
-    background-color: white;
-    transition: ease-in 3s;
 }

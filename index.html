@@ -33,17 +33,10 @@
                     const tile = document.createElement("div");
                     tile.classList.add("tile");
                     tile.addEventListener("mouseenter", () => {
-                        tile.classList.remove("fading");
-                        tile.classList.add("inFocus");
+                        tile.style.backgroundColor = "hsl(" + Math.floor(Math.random() * 360) + " , 90%, 70%)"
                     })
-                    tile.addEventListener("mouseleave", () => {
-                        tile.classList.remove("inFocus");
-                        tile.classList.add("fading");
-                    })
-                    tile.addEventListener("transitionend", () => {tile.classList.remove("fading");})
                     row_div.appendChild(tile);
                 }
-
                 tilesContainer.appendChild(row_div);
             }
         }
